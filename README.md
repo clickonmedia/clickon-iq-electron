@@ -2,7 +2,7 @@
 
 ## Requirements
 
-- Node.js v14.17.2
+- Node.js v14.17.5+
 - Yarn 1.22.11
 
 ## Setup
