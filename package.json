@@ -1,0 +1,86 @@
+{
+  "name": "clickonworkflow",
+  "productName": "CLICKON Workflow",
+  "version": "1.0.1",
+  "description": "CLICKON Workflow",
+  "main": "main.js",
+  "scripts": {
+    "start:control": "npx babel renderer/control.jsx --out-file renderer/control-compiled.js",
+    "start": "electron-forge start --inspect-electron",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "make-linux": "electron-forge make --platform linux",
+    "make-mac": "electron-forge make --platform darwin",
+    "make-win": "electron-forge make --platform win32"
+  },
+  "author": "Salim Ahammed",
+  "license": "ISC",
+  "files": [
+    "library/browserLikeWindow/index.js",
+    "renderer/js/useConnect.js",
+    "renderer/js/control.js"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.18.10",
+    "@babel/core": "^7.19.0",
+    "@babel/preset-env": "^7.19.0",
+    "@babel/preset-react": "^7.18.6",
+    "@electron-forge/cli": "^6.0.0-beta.66",
+    "@electron-forge/maker-deb": "^6.0.0-beta.66",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.66",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.66",
+    "@electron-forge/maker-zip": "^6.0.0-beta.66",
+    "@electron-forge/plugin-webpack": "^6.0.0-beta.66",
+    "classnames": "^2.3.1",
+    "electron": "^6.0.9",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "dependencies": {
+    "classnames": "^2.3.1",
+    "electron-log": "^4.4.8",
+    "electron-squirrel-startup": "^1.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "url-parse": "^1.5.10"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "icon": "library/browserLikeWindow/assets/appicon",
+        "asar": true,
+        "name": "CLICKON Workflow",
+        "executableName": "clickonworkflow"
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "clickon_iq_electron"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin",
+            "win32"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {
+            "name": "CLICKON Workflow",
+            "icon": "library/browserLikeWindow/assets/appicon.png"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {
+            "name": "CLICKON Workflow",
+            "icon": "library/browserLikeWindow/assets/appicon.png"
+          }
+        }
+      ]
+    }
+  }
+}
