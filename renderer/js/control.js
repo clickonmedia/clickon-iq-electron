@@ -1,9 +1,4 @@
-const { ipcRenderer, app, autoUpdater  } = require('electron');
-
-const server = `hazel-clickon-iq-electron-ffil5axyj-clickonmedia.vercel.app`;
-const url = `${server}/update/${process.platform}/${app.getVersion()}`;
-
-autoUpdater.setFeedURL({ url });
+const { ipcRenderer  } = require('electron');
 
 module.exports = function(options = {}) {
     const { browserWindowId } = options;
