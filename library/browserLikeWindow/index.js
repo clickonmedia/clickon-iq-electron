@@ -101,6 +101,7 @@ class BrowserLikeWindow extends EventEmitter {
     // this.win.show();
     // }
     this.win.setMenu(null);
+    this.win.maximize();
     /**
      * closed event
      *

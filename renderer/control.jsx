@@ -120,10 +120,11 @@ function Control() {
                 ) : (
                   !!favicon && (
                     <img
+                      style={{borderRadius: '50%'}}
                       data-tip
                       data-for="title"
                       src={favicon}
-                      width="24"
+                      width="35"
                       alt=""
                     />
                   )
