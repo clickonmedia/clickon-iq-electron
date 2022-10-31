@@ -17,3 +17,18 @@
 - For Windows -> Run `yarn make-win`
 *** Windows packaging is currently not working from other platform. You have to package it from the widows 
     machine by running `yarn make` OR `yarn make-win`
+
+## Code Signing - MacOS
+
+https://www.electronjs.org/docs/latest/tutorial/code-signing#signing--notarizing-macos-builds
+
+See osxNotarize config object in package.json
+
+"osxNotarize": {
+    "tool": "notarytool",
+    "appleId": "<appleId>",
+    "appleIdPassword": "<appleIdPassword>",
+    "teamId": "<teamId>"
+}
+
+Run `yarn make-mac`

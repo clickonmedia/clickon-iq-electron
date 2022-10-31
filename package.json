@@ -50,7 +50,14 @@
         "icon": "library/browserLikeWindow/assets/appicon",
         "asar": true,
         "name": "IQ Workflow",
-        "executableName": "iqworkflow"
+        "executableName": "iqworkflow",
+        "osxSign": {},
+        "osxNotarize": {
+            "tool": "notarytool",
+            "appleId": "<appleId>",
+            "appleIdPassword": "<appleIdPassword>",
+            "teamId": "<teamId>"
+        }
       },
       "makers": [
         {
