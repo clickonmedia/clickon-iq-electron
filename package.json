@@ -1,8 +1,8 @@
 {
-  "name": "clickonworkflow",
-  "productName": "CLICKON Workflow",
-  "version": "1.0.1",
-  "description": "CLICKON Workflow",
+  "name": "iqworkflow",
+  "productName": "IQ Workflow",
+  "version": "1.0.0",
+  "description": "IQ Workflow",
   "main": "main.js",
   "scripts": {
     "start:control": "npx babel renderer/control.jsx --out-file renderer/control-compiled.js",
@@ -49,8 +49,8 @@
       "packagerConfig": {
         "icon": "library/browserLikeWindow/assets/appicon",
         "asar": true,
-        "name": "CLICKON Workflow",
-        "executableName": "clickonworkflow"
+        "name": "IQ Workflow",
+        "executableName": "iqworkflow"
       },
       "makers": [
         {
@@ -69,14 +69,14 @@
         {
           "name": "@electron-forge/maker-deb",
           "config": {
-            "name": "CLICKON Workflow",
+            "name": "IQ Workflow",
             "icon": "library/browserLikeWindow/assets/appicon.png"
           }
         },
         {
           "name": "@electron-forge/maker-rpm",
           "config": {
-            "name": "CLICKON Workflow",
+            "name": "IQ Workflow",
             "icon": "library/browserLikeWindow/assets/appicon.png"
           }
         }
