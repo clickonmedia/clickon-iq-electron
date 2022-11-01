@@ -132,10 +132,13 @@ function Control() {
         close(e, id);
       }
     }, isLoading ? /*#__PURE__*/_react.default.createElement(IconLoading, null) : !!favicon && /*#__PURE__*/_react.default.createElement("img", {
+      style: {
+        borderRadius: '50%'
+      },
       "data-tip": true,
       "data-for": "title",
       src: favicon,
-      width: "24",
+      width: "35",
       alt: ""
     }));
   }), /*#__PURE__*/_react.default.createElement("div", {
