@@ -47,6 +47,15 @@
   "config": {
     "forge": {
       "packagerConfig": {
+        "osxSign": {
+          "hardenedRuntime": true
+        },
+        "osxNotarize": {
+          "tool": "notarytool",
+          "appleId": "services@clickon.co",
+          "appleIdPassword": "vbue-rgpb-mjvy-hwvs",
+          "teamId": "WHPZT5PP9C"
+      },
         "icon": "library/browserLikeWindow/assets/appicon",
         "asar": true,
         "name": "IQ Workflow",
