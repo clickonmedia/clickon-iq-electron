@@ -1,7 +1,13 @@
 const packager = require("electron-packager");
+require('dotenv').config();
+
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+
 packager({
   dir: __dirname,
-  name: "iqworkflow",
+  name: "IQ Workflow",
   buildPath: __dirname,
   electronVersion: "6.0.9",
   version: "1.0.0",
@@ -11,6 +17,18 @@ packager({
   icon: "library/browserLikeWindow/assets/appicon.ico",
   prune: true,
   appVersion: "1.0.0",
-  platform: "all",
+  platform: "darwin",
   out: "out",
+  osxSign: {
+    identity: process.env.IDENTITY,
+    'hardened-runtime': true,
+    entitlements: 'entitlements.plist',
+    'entitlements-inherit': 'entitlements.plist',
+    'signature-flags': 'library'
+  },
+  osxNotarize: {
+    appleId: process.env.APPLE_ID,
+    appleIdPassword: process.env.APPLE_ID_PWD,
+    appBundleId: '1.0.0'
+  }
 });
