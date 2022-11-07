@@ -18,5 +18,17 @@ packager({
   prune: true,
   appVersion: "1.0.0",
   platform: "darwin",
-  out: "out"
+  out: "out",
+  osxSign: {
+    identity: process.env.IDENTITY,
+    'hardened-runtime': true,
+    entitlements: 'entitlements.plist',
+    'entitlements-inherit': 'entitlements.plist',
+    'signature-flags': 'library'
+  },
+  osxNotarize: {
+    appleId: process.env.APPLE_ID,
+    appleIdPassword: process.env.APPLE_ID_PWD,
+    appBundleId: '1.0.0'
+  }
 });

@@ -12,6 +12,7 @@
     "make-linux": "electron-forge make --platform linux",
     "make-mac": "electron-forge make --platform darwin",
     "make-win": "electron-forge make --platform win32",
+    "build-and-sign": "node build-and-sign.js",
     "build": "node build.js"
   },
   "author": "CLICKON Media",
