@@ -11,7 +11,8 @@
     "make": "electron-forge make",
     "make-linux": "electron-forge make --platform linux",
     "make-mac": "electron-forge make --platform darwin",
-    "make-win": "electron-forge make --platform win32"
+    "make-win": "electron-forge make --platform win32",
+    "build": "node build.js"
   },
   "author": "Salim Ahammed",
   "license": "ISC",
@@ -33,6 +34,7 @@
     "@electron-forge/plugin-webpack": "^6.0.0-beta.66",
     "classnames": "^2.3.1",
     "electron": "^6.0.9",
+    "electron-packager": "^17.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
