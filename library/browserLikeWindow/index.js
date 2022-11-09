@@ -220,15 +220,17 @@ class BrowserLikeWindow extends EventEmitter {
       );
     });
 
-    this.win.on("maximize", () => {
+    this.win.on("maximize", async () => {
       if (process.platform === "linux") {
         const { screen } = require("electron");
-        const primaryDisplay = screen.getPrimaryDisplay();
-        const { width, height } = primaryDisplay.workAreaSize;
-        this.win.setBounds({
-          width: 1024,
-          height: 720,
-        });
+        const primaryDisplay = await screen.getPrimaryDisplay();
+        if (primaryDisplay) {
+          const { width, height } = primaryDisplay.workAreaSize;
+          this.win.setBounds({
+            width,
+            height,
+          });
+        }
       }
     });
 
