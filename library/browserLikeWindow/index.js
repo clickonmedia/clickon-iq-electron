@@ -223,12 +223,12 @@ class BrowserLikeWindow extends EventEmitter {
     this.win.on("maximize", () => {
       if (process.platform === "linux") {
         const { screen } = require("electron");
-        console.log(screen.getPrimaryDisplay());
+        // console.log(screen.getPrimaryDisplay());
         const primaryDisplay = screen.getPrimaryDisplay();
         const { width, height } = primaryDisplay.workAreaSize;
         this.win.setBounds({
-          width,
-          height,
+          width: 1024,
+          height: 720,
         });
       }
     });
