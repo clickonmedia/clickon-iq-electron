@@ -16,6 +16,8 @@ out/
 # Log files
 *.log
 
+.env
+
 # Package files
 *.jar
 

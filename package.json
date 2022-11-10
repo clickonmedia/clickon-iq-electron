@@ -12,9 +12,10 @@
     "make-linux": "electron-forge make --platform linux",
     "make-mac": "electron-forge make --platform darwin",
     "make-win": "electron-forge make --platform win32",
+    "build-and-sign": "node build-and-sign.js",
     "build": "node build.js"
   },
-  "author": "Salim Ahammed",
+  "author": "CLICKON Media",
   "license": "ISC",
   "files": [
     "library/browserLikeWindow/index.js",
@@ -40,6 +41,7 @@
   },
   "dependencies": {
     "classnames": "^2.3.1",
+    "dotenv": "^16.0.3",
     "electron-log": "^4.4.8",
     "electron-squirrel-startup": "^1.0.0",
     "react": "^18.2.0",
