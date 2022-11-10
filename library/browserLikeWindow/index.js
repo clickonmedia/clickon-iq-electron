@@ -220,16 +220,17 @@ class BrowserLikeWindow extends EventEmitter {
       );
     });
 
-    this.win.on("maximize", () => {
+    this.win.on("maximize", async () => {
       if (process.platform === "linux") {
         const { screen } = require("electron");
-        console.log(screen.getPrimaryDisplay());
-        const primaryDisplay = screen.getPrimaryDisplay();
-        const { width, height } = primaryDisplay.workAreaSize;
-        this.win.setBounds({
-          width,
-          height,
-        });
+        const primaryDisplay = await screen.getPrimaryDisplay();
+        if (primaryDisplay) {
+          const { width, height } = primaryDisplay.workAreaSize;
+          this.win.setBounds({
+            width,
+            height,
+          });
+        }
       }
     });
 
@@ -392,18 +393,18 @@ class BrowserLikeWindow extends EventEmitter {
           });
 
           if (Object.values(errorPage).indexOf(href) === -1) {
-            this.setTabConfig(id, { url: href });
+            this.setTabConfig(webContents.id, { url: href });
           }
         }
       }
     );
     webContents.on("page-title-updated", (e, title) => {
       log.debug("page-title-updated", title);
-      this.setTabConfig(id, { title });
+      this.setTabConfig(webContents.id, { title });
     });
     webContents.on("page-favicon-updated", (e, favicons) => {
       log.debug("page-favicon-updated", favicons);
-      this.setTabConfig(id, { favicon: favicons[0] });
+      this.setTabConfig(webContents.id, { favicon: favicons[0] });
     });
     webContents.on("did-stop-loading", () => {
       let href = webContents.getURL();
@@ -415,12 +416,12 @@ class BrowserLikeWindow extends EventEmitter {
 
       if (Object.values(errorPage).indexOf(href) === -1) {
         //not in the list of errorPage
-        this.setTabConfig(id, { isLoading: false, title: title });
+        this.setTabConfig(webContents.id, { isLoading: false, title: title });
       } else {
         //in the list of errorPage
-        this.setTabConfig(id, {
+        this.setTabConfig(webContents.id, {
           isLoading: false,
-          title: this.tabConfigs[id].url || title,
+          title: this.tabConfigs[webContents.id].url || title,
         });
       }
     });
@@ -485,17 +486,17 @@ class BrowserLikeWindow extends EventEmitter {
 
     if (appendTo) {
       const prevIndex = this.tabs.indexOf(appendTo);
-      this.tabs.splice(prevIndex + 1, 0, view.id);
+      this.tabs.splice(prevIndex + 1, 0, view.webContents.id);
     } else {
-      this.tabs.push(view.id);
+      this.tabs.push(view.webContents.id);
     }
-    this.views[view.id] = view;
+    this.views[view.webContents.id] = view;
 
     // Add to manager first
-    this.setCurrentView(view.id);
+    this.setCurrentView(view.webContents.id);
     view.setAutoResize({ width: true, height: true });
     this.loadURL(url || "https://iqworkflow.app/workspace");
-    this.setTabConfig(view.id, {
+    this.setTabConfig(view.webContents.id, {
       title: this.options.blankTitle,
       proxyTitle: this.options.proxyTitle || "",
     });
@@ -525,7 +526,7 @@ class BrowserLikeWindow extends EventEmitter {
   destroyView(viewId) {
     const view = this.views[viewId];
     if (view) {
-      view.destroy();
+      // view.destroy();
       this.views[viewId] = undefined;
       log.debug(`${viewId} destroyed`);
     }

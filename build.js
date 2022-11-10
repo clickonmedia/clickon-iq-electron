@@ -9,7 +9,7 @@ packager({
   dir: __dirname,
   name: "IQ Workflow",
   buildPath: __dirname,
-  electronVersion: "6.0.9",
+  electronVersion: "21.0.0",
   version: "1.0.0",
   buildVersion: "1.0.0",
   overwrite: true,
@@ -18,5 +18,6 @@ packager({
   prune: true,
   appVersion: "1.0.0",
   platform: "darwin",
-  out: "out"
+  arch: "x64",
+  out: "out",
 });
