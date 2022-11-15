@@ -252,8 +252,8 @@ class BrowserLikeWindow extends EventEmitter {
     const x = process.platform === "darwin" ? contentBounds.x - winBounds.x : 0;
     const y = process.platform === "darwin" ? contentBounds.y - winBounds.y : 0;
     return {
-      x: 0,
-      y: 0,
+      x,
+      y,
       width: 60,
       height: contentBounds.height,
     };
@@ -266,10 +266,11 @@ class BrowserLikeWindow extends EventEmitter {
   setContentBounds() {
     const [contentWidth, contentHeight] = this.win.getContentSize();
     const controlBounds = this.getControlBounds();
+    const y = process.platform === "darwin" ? controlBounds.y : 0;
     if (this.currentView) {
       this.currentView.setBounds({
         x: controlBounds.x + controlBounds.width,
-        y: 0,
+        y,
         width: contentWidth - controlBounds.width,
         height: contentHeight,
       });
