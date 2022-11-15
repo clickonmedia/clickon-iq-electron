@@ -13,9 +13,36 @@
     "make-mac": "electron-forge make --platform darwin",
     "make-win": "electron-forge make --platform win32",
     "build-and-sign": "node build-and-sign.js",
-    "build": "node build.js"
+    "build": "node build.js",
+    "dist": "electron-builder",
+    "dist-all": "electron-builder -mwl"
   },
-  "author": "CLICKON Media",
+  "build": {
+    "appId": "iqworkflow",
+    "dmg": {
+      "title": "${productName} ${version}",
+      "icon": "library/browserLikeWindow/assets/appicon.icns",
+      "sign": false
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "icon": "library/browserLikeWindow/assets/appicon.png"
+    },
+    "win": {
+      "target": "NSIS",
+      "icon": "library/browserLikeWindow/assets/appicon.ico"
+    },
+    "mac": {
+      "hardenedRuntime": true,
+      "entitlements": "entitlements.plist",
+      "entitlementsInherit": "entitlements.plist"
+    },
+    "afterSign": "notarize.js"
+  },
+  "author": "CLICKON Media <salimahammed.openwebsolutions.in>",
   "license": "ISC",
   "files": [
     "library/browserLikeWindow/index.js",
@@ -35,6 +62,7 @@
     "@electron-forge/plugin-webpack": "^6.0.0-beta.66",
     "classnames": "^2.3.1",
     "electron": "21.0.0",
+    "electron-builder": "^23.6.0",
     "electron-packager": "^17.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -44,6 +72,7 @@
     "dotenv": "^16.0.3",
     "electron-log": "^4.4.8",
     "electron-squirrel-startup": "^1.0.0",
+    "electron-updater": "^5.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "url-parse": "^1.5.10"
