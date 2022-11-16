@@ -1,7 +1,7 @@
 {
   "name": "iqworkflow",
   "productName": "IQ Workflow",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "IQ Workflow",
   "main": "main.js",
   "repository": "https://github.com/clickonmedia/clickon-iq-electron",
