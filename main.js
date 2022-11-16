@@ -1,5 +1,6 @@
 const { app } = require("electron");
 const electron = require("electron");
+import { autoUpdater } from 'electron-updater'
 
 const BrowserLikeWindow = require("./library/browserLikeWindow");
 let browser;
@@ -15,7 +16,7 @@ app.whenReady().then(() => {
     widthAuto: width,
     heightAuto: height
   });
-
+  autoUpdater.checkForUpdatesAndNotify();
 // FIXME: instead of using this iqTabs array, 
 // use browser.tabs[] to loop over the correct quantity of tabs from browserLikeWindow/index.js
 // in the newTab method [line 490], push to a shared state array?

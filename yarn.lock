@@ -6607,6 +6607,11 @@ verror@^1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
+versiony@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/versiony/-/versiony-2.0.1.tgz#ef425067169a91648426bb4447a5d94fdd7654e0"
+  integrity sha512-Ah5LPzNPd59ga2Hacv8FQj5MzduTBmlEyoYhQ/aWXG2HWuLfcnf7Kfz4Lf82At7BrO8OH+eHuJeDIuzvU+RdtA==
+
 watchpack@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/watchpack/-/watchpack-2.4.0.tgz#fa33032374962c78113f93c7f2fb4c54c9862a5d"
