@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "description": "IQ Workflow",
   "main": "main.js",
+  "repository": "https://github.com/clickonmedia/clickon-iq-electron",
   "scripts": {
     "start:control": "npx babel renderer/control.jsx --out-file renderer/control-compiled.js",
     "start": "electron-forge start --inspect-electron",

@@ -1,5 +1,6 @@
 const { app } = require("electron");
 const electron = require("electron");
+const { autoUpdater } = require('electron-updater')
 
 const BrowserLikeWindow = require("./library/browserLikeWindow");
 let browser;
