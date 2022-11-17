@@ -44,13 +44,15 @@
     },
     "win": {
       "target": "NSIS",
-      "icon": "library/browserLikeWindow/assets/appicon.ico"
+      "icon": "library/browserLikeWindow/assets/appicon.ico",
+      "artifactName": "IQ-Workflow-${version}.${ext}"
     },
     "mac": {
       "hardenedRuntime": true,
       "entitlements": "entitlements.plist",
       "entitlementsInherit": "entitlements.plist",
-      "icon": "library/browserLikeWindow/assets/appicon.icns"
+      "icon": "library/browserLikeWindow/assets/appicon.icns",
+      "artifactName": "IQ-Workflow-${version}.${ext}"
     },
     "afterSign": "notarize.js"
   },
