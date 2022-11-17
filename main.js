@@ -1,5 +1,6 @@
 const { app } = require("electron");
 const electron = require("electron");
+const { autoUpdater } = require('electron-updater')
 
 const BrowserLikeWindow = require("./library/browserLikeWindow");
 let browser;
@@ -11,11 +12,11 @@ app.whenReady().then(() => {
     controlPanel: "renderer/control.html",
     startPage: "https://iqworkflow.app/workspace",
     blankTitle: "New tab",
-    //debug: true, // will open controlPanel's devtools,
+    // debug: true, // will open controlPanel's devtools,
     widthAuto: width,
     heightAuto: height
   });
-
+autoUpdater.checkForUpdatesAndNotify();
 // FIXME: instead of using this iqTabs array, 
 // use browser.tabs[] to loop over the correct quantity of tabs from browserLikeWindow/index.js
 // in the newTab method [line 490], push to a shared state array?
