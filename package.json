@@ -30,7 +30,8 @@
         "AppImage",
         "deb"
       ],
-      "icon": "library/browserLikeWindow/assets/appicon.png"
+      "icon": "library/browserLikeWindow/assets/appicon.png",
+      "executableName": "iqworkflow"
     },
     "win": {
       "target": "NSIS",
