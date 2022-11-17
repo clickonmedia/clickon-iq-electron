@@ -10,7 +10,7 @@ module.exports = async function (params) {
 
   console.log('afterSign hook triggered', params)
 
-  let appId = 'com.todorant.mac' // Please change the appId
+  let appId = process.env.APP_ID
 
   let appPath = path.join(
     params.appOutDir,

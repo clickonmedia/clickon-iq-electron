@@ -40,11 +40,12 @@
     "mac": {
       "hardenedRuntime": true,
       "entitlements": "entitlements.plist",
-      "entitlementsInherit": "entitlements.plist"
+      "entitlementsInherit": "entitlements.plist",
+      "icon": "library/browserLikeWindow/assets/appicon.icns"
     },
     "afterSign": "notarize.js"
   },
-  "author": "CLICKON Media <salimahammed.openwebsolutions.in>",
+  "author": "CLICKON Media <technical.services@clickon.co>",
   "license": "ISC",
   "files": [
     "library/browserLikeWindow/index.js",
