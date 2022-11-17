@@ -19,7 +19,7 @@ app.whenReady().then(() => {
   });
 
   console.log('auto', autoUpdater)
-autoUpdater.checkForUpdatesAndNotify().then(res => console.log('res', res));
+autoUpdater.checkForUpdatesAndNotify().then(res => console.log('res', res)).catch(err => console.log('err',err));
 // FIXME: instead of using this iqTabs array, 
 // use browser.tabs[] to loop over the correct quantity of tabs from browserLikeWindow/index.js
 // in the newTab method [line 490], push to a shared state array?
