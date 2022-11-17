@@ -6,17 +6,20 @@ const BrowserLikeWindow = require("./library/browserLikeWindow");
 let browser;
 if(require('electron-squirrel-startup')) return;
 app.whenReady().then(() => {
+  console.log('test')
   const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize;
   browser = new BrowserLikeWindow({
     controlHeight: 99,
     controlPanel: "renderer/control.html",
     startPage: "https://iqworkflow.app/workspace",
     blankTitle: "New tab",
-    //debug: true, // will open controlPanel's devtools,
+    // debug: true, // will open controlPanel's devtools,
     widthAuto: width,
     heightAuto: height
   });
-autoUpdater.checkForUpdatesAndNotify();
+
+  console.log('auto', autoUpdater)
+autoUpdater.checkForUpdatesAndNotify().then(res => console.log('res', res));
 // FIXME: instead of using this iqTabs array, 
 // use browser.tabs[] to loop over the correct quantity of tabs from browserLikeWindow/index.js
 // in the newTab method [line 490], push to a shared state array?
