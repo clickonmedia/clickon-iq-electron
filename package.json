@@ -1,7 +1,7 @@
 {
   "name": "iqworkflow",
   "productName": "IQ Workflow",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "description": "IQ Workflow",
   "main": "main.js",
   "repository": "https://github.com/clickonmedia/clickon-iq-electron",
@@ -20,6 +20,7 @@
   },
   "build": {
     "appId": "iqworkflow",
+    "asar": true,
     "dmg": {
       "title": "${productName} ${version}",
       "icon": "library/browserLikeWindow/assets/appicon.icns",
