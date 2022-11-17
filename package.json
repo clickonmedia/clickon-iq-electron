@@ -1,8 +1,8 @@
 {
   "name": "iqworkflow",
-  "productName": "Workflow",
-  "version": "1.2.7",
-  "description": "Workflow",
+  "productName": "IQ Workflow",
+  "version": "1.2.8",
+  "description": "IQ Workflow",
   "main": "main.js",
   "repository": "https://github.com/clickonmedia/clickon-iq-electron",
   "scripts": {
@@ -92,7 +92,7 @@
       "packagerConfig": {
         "icon": "library/browserLikeWindow/assets/appicon",
         "asar": true,
-        "name": "Workflow",
+        "name": "IQ Workflow",
         "executableName": "iqworkflow"
       },
       "makers": [
@@ -112,14 +112,14 @@
         {
           "name": "@electron-forge/maker-deb",
           "config": {
-            "name": "Workflow",
+            "name": "IQ Workflow",
             "icon": "library/browserLikeWindow/assets/appicon.png"
           }
         },
         {
           "name": "@electron-forge/maker-rpm",
           "config": {
-            "name": "Workflow",
+            "name": "IQ Workflow",
             "icon": "library/browserLikeWindow/assets/appicon.png"
           }
         }
