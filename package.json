@@ -20,6 +20,13 @@
   },
   "build": {
     "appId": "iqworkflow",
+    "publish": [
+      { 
+        "provider": "github",
+        "private": false,
+        "releaseType": "release"
+      }
+    ],
     "dmg": {
       "title": "${productName} ${version}",
       "icon": "library/browserLikeWindow/assets/appicon.icns",
