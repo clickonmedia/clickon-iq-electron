@@ -20,7 +20,6 @@
   },
   "build": {
     "appId": "iqworkflow",
-    "asar": true,
     "dmg": {
       "title": "${productName} ${version}",
       "icon": "library/browserLikeWindow/assets/appicon.icns",
@@ -64,7 +63,7 @@
     "@electron-forge/plugin-webpack": "^6.0.0-beta.66",
     "classnames": "^2.3.1",
     "electron": "21.0.0",
-    "electron-builder": "20.38.0",
+    "electron-builder": "^23.6.0",
     "electron-packager": "^17.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -74,7 +73,7 @@
     "dotenv": "^16.0.3",
     "electron-log": "^4.4.8",
     "electron-squirrel-startup": "^1.0.0",
-    "electron-updater": "4.0.4",
+    "electron-updater": "^5.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "url-parse": "^1.5.10"
