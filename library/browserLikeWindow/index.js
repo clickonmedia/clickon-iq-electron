@@ -3,6 +3,7 @@ const EventEmitter = require("events");
 const log = require("electron-log");
 const Url = require("url-parse");
 const path = require("path");
+const cache = require('../../cache');
 
 log.transports.file.level = false;
 log.transports.console.level = false;
@@ -155,7 +156,14 @@ class BrowserLikeWindow extends EventEmitter {
       "control-ready": (e) => {
         log.debug("on control-ready");
         this.ipc = e;
-        this.newTab(this.options.startPage || "");
+        const tabsCache = cache.getStore();
+        if(Object.keys(tabsCache).length > 0) {
+          for(const key in tabsCache) {
+            this.newTab(tabsCache[key])
+          }
+        } else {
+          this.newTab(this.options.startPage || "");
+        }
         /**
          * control-ready event.
          *
@@ -357,6 +365,10 @@ class BrowserLikeWindow extends EventEmitter {
       }
     );
 
+    webContents.on('did-finish-load', () => {
+      cache.set(`${this.currentViewId}`, webContents.getURL());
+    });
+
     //handle will-redirect event
     webContents.on(
       "will-redirect",
@@ -496,7 +508,8 @@ class BrowserLikeWindow extends EventEmitter {
     // Add to manager first
     this.setCurrentView(view.webContents.id);
     view.setAutoResize({ width: true, height: true });
-    this.loadURL(url || "https://iqworkflow.app/workspace");
+    const urlToLoad = url || "https://iqworkflow.app/workspace";
+    this.loadURL(urlToLoad);
     this.setTabConfig(view.webContents.id, {
       title: this.options.blankTitle,
       proxyTitle: this.options.proxyTitle || "",
@@ -507,6 +520,7 @@ class BrowserLikeWindow extends EventEmitter {
      * @event BrowserLikeWindow#new-tab
      * @type {BrowserView}
      */
+    cache.set(`${view.webContents.id}`, urlToLoad);
     this.emit("new-tab", view);
   }
 
@@ -529,6 +543,13 @@ class BrowserLikeWindow extends EventEmitter {
     if (view) {
       // view.destroy();
       this.views[viewId] = undefined;
+      const allTabs = cache.getStore();
+      delete allTabs[`${viewId}`];
+      cache.clear();
+      for(const key in allTabs) {
+        cache.set(`${key}`, allTabs[key]);
+      }
+      // cache.set(allTabs);
       log.debug(`${viewId} destroyed`);
     }
   }
