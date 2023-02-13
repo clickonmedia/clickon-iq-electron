@@ -17,3 +17,17 @@
 - For Windows -> Run `yarn make-win`
 *** Windows packaging is currently not working from other platform. You have to package it from the widows 
     machine by running `yarn make` OR `yarn make-win`
+
+## Build
+
+```
+yarn dist
+
+yarn dist-all
+```
+
+## Notarize
+
+```
+node notarize.js
+```
