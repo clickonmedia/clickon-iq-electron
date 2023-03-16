@@ -132,8 +132,9 @@ function Control() {
         close(e, id);
       }
     }, isLoading ? /*#__PURE__*/_react.default.createElement(IconLoading, null) : !!favicon && /*#__PURE__*/_react.default.createElement("img", {
+      className: "tab-image",
       style: {
-        borderRadius: '50%'
+        borderRadius: "50%"
       },
       "data-tip": true,
       "data-for": "title",

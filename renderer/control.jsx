@@ -120,7 +120,8 @@ function Control() {
                 ) : (
                   !!favicon && (
                     <img
-                      style={{borderRadius: '50%'}}
+                      className="tab-image"
+                      style={{ borderRadius: "50%" }}
                       data-tip
                       data-for="title"
                       src={favicon}
